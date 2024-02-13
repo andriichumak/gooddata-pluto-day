@@ -4,5 +4,10 @@ profiles:
     token: $GOODDATA_API_TOKEN
     workspace_id: pluto
     data_source_id: c30c1937-13e1-4f2d-a62c-6f9b013fbfb1
+  demo:
+    host: https://public.demo.cloud.gooddata.com/
+    token: $GOODDATA_API_TOKEN_DEMO
+    workspace_id: pluto
+    data_source_id: 45acfe2e-88f2-4fe1-9749-4dc7b55a4413
 source_dir: analyze
 default_profile: dev
