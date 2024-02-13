@@ -4,28 +4,56 @@
     <meta charset="UTF-8">
     <title>Pluto</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="shortcut icon" href="https://goodata.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://gooddata.com/apple-touch-icon.png">
     <script type="module" src="https://public-examples.gooddata.com/components/pluto.js?auth=sso"></script>
 </head>
 <body>
-    <header>
-        <img src="https://www.gooddata.com/img/generic/logo-gd-b.svg" alt="GoodData Logo"/>
-        <section>Lorem ipsum</section>
-    </header>
-    <section>
-        <p>Lorem ipsum...</p>
-        <gd-dashboard dashboard="pluto"></gd-dashboard>
-    </section>
-    <section>
-        <p>Lorem ipsum...</p>
-        <gd-dashboard dashboard="small_bodies"></gd-dashboard>
-    </section>
-    <section>
-        <p>Lorem ipsum...</p>
-        <gd-dashboard dashboard="all_small_bodies"></gd-dashboard>
-    </section>
-    <section>
-        <p>Lorem ipsum...</p>
-        <gd-dashboard dashboard="all_large_bodies"></gd-dashboard>
-    </section>
+    <article>
+        <header>
+            <section>
+                <img src="https://www.gooddata.com/img/generic/logo-gd-b.svg" alt="GoodData Logo"/>
+                <p>
+                    This is a demo dashboard created to showcase a complete data pipeline with GoodData for VS Code.
+                </p>
+                <ul>
+                    <li>Data ingestion is done with Meltano's REST API extractor.</li>
+                    <li>Data is stored in Snowflake.</li>
+                    <li>Data is transformed with dbt.</li>
+                    <li>The analytical project is created with GoodData for VS Code.</li>
+                </ul>
+                <p>
+                    You can find a source code for the dashboard <a href="https://github.com/andriichumak/gooddata-pluto-day" rel="nofollow" target="_blank">on GitHub</a>.
+                </p>
+            </section>
+        </header>
+        <div class="dashboards">
+            <section>
+                <gd-dashboard dashboard="pluto" readonly></gd-dashboard>
+            </section>
+            <section>
+                <gd-dashboard dashboard="small_bodies" readonly></gd-dashboard>
+            </section>
+            <section>
+                <gd-dashboard dashboard="all_large_bodies" readonly></gd-dashboard>
+            </section>
+            <section>
+                <gd-dashboard dashboard="all_small_bodies" readonly></gd-dashboard>
+            </section>
+        </div>
+        <footer>
+            <section>
+                <p>
+                    Want to check out the source code of this dashboard? <a href="https://github.com/andriichumak/gooddata-pluto-day" target="_blank" rel="nofollow">It's on GitHub!</a>
+                </p>
+                <p>
+                    Want to try GoodData for yourself? <a target="_blank" href="https://registration.cloud.gooddata.com/register">Register for a free trial</a>!
+                </p>
+                <p>
+                    The data used for this dashboard is loaded from <a target="_blank" rel="nofollow" href="https://api.le-systeme-solaire.net/en/">The Solar System OpenData</a> and <a target="_blank" rel="nofollow" href="https://ssd-api.jpl.nasa.gov/doc/sbdb_query.html">NASA JPL Small Bodies Database</a>
+                </p>
+            </section>
+        </footer>
+    </article>
 </body>
 </html>

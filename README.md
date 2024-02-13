@@ -1,6 +1,13 @@
 # Pluto Day
 
-This is a demo project on how to integrate Meltano/dbt pipeline with GoodData for VS Code.
+This is a demo dashboard created to showcase a complete data pipeline with GoodData for VS Code.
+
+* Data ingestion is done with Meltano's REST API extractor.
+* Data is stored in Snowflake.
+* Data is transformed with dbt.
+* The analytical project is created with GoodData for VS Code.
+
+You can find a source code for the dashboard on [GitHub](https://github.com/andriichumak/gooddata-pluto-day).
 
 # Credits
 
