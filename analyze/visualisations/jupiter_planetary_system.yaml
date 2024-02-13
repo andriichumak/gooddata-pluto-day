@@ -14,7 +14,7 @@ query:
   fields:
     mean_radius:
       alias: Mean Radius, km
-      title: Sum of Mean Radius
+      title: Sum of Large Body Mean Radius
       aggregation: SUM
       using: fact/large_body_mean_radius
     name: label/large_body_name

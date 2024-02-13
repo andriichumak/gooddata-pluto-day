@@ -13,7 +13,8 @@ title: Planets (and Pluto) size comparison
 query:
   fields:
     mean_radius:
-      title: Mean Radius, km
+      alias: Mean Radius, km
+      title: Sum of Large Body Mean Radius
       aggregation: SUM
       using: fact/large_body_mean_radius
     name: label/large_body_name
@@ -41,7 +42,11 @@ query:
 
 metrics:
   - field: mean_radius
-    format: "#,##0.00"
+    format: "#,##0"
 
 view_by:
   - name
+
+config:
+  xaxis_name_visible: false
+  xaxis_visible: true

@@ -8,8 +8,10 @@ type: dashboard
 
 title: All small bodies
 
+cross_filtering: false
+
 sections:
-  - description: Showing only top 100 results
+  - description: Feel free to inspect the data yourself! Showing only top 100 results.
     widgets:
       - visualization: all_small_bodies
         title: false
@@ -17,11 +19,12 @@ sections:
         rows: 38
 
 filters:
-  common_day_filter:
+  common_day:
     type: date_filter
     mode: hidden
   type_filter:
     type: attribute_filter
+    title: Object Type
     using: label/small_body_type
   pha_filter:
     type: attribute_filter

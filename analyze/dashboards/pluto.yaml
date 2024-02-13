@@ -6,27 +6,26 @@
 id: pluto
 type: dashboard
 
-title: Pluto
+title: How big is Pluto, anyway?
 
 cross_filtering: false
 
 sections:
-  - title: How big is Pluto, anyway?
-    description: Pluto's moons are quite massive and some astronomers suggest to call Pluto-Charon a binary dwarf-planet. Here is how it compares to Earth's and Jupiter's planetary systems. We are comparing dimensions here, the difference is even more stark when translated to masses (volume is proportional to radius^3).
+  - description: Pluto's moons are quite massive and some astronomers suggest to call Pluto-Charon a binary dwarf-planet. Here is how it compares to Earth's and Jupiter's planetary systems. We are comparing dimensions here, the difference is even more stark when translated to masses (volume is proportional to radius^3).
     widgets:
       - visualization: pluto_planetary_system
         title: Pluto planetary system
-        columns: 4
+        columns: 6
         rows: 22
         date: discovery_date
       - visualization: earth_planetary_system
         title: Earth planetary system
-        columns: 4
+        columns: 6
         rows: 22
         date: discovery_date
       - visualization: jupiter_planetary_system
         title: Jupiter planetary system
-        columns: 4
+        columns: 12
         rows: 22
         date: discovery_date
       - visualization: planets_size_comparison
@@ -35,9 +34,14 @@ sections:
         rows: 22
         date: discovery_date
   - title: How far is Pluto?
-    description: Pluto is quite far from us, way further than the distance from Earth to Sun, and way further than any other planet. (Hover the points to see planet names)
+    description: Pluto is quite far from us, way further than the distance from Earth to the Sun, and way further than any other planet. (Hover the points to see planet names)
     widgets:
       - visualization: distance_from_sun
         title: false
         columns: 12
         rows: 22
+
+filters:
+  common_day:
+    type: date_filter
+    mode: hidden

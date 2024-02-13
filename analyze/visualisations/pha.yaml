@@ -13,7 +13,8 @@ title: PHA (Potentially Hazardous Asteroids)
 query:
   fields:
     small_body_count:
-      title: Small Bodies Count
+      alias: Small Body Count
+      title: Count of Small Body
       aggregation: COUNT
       using: attribute/small_body
     pha: label/small_body_pha
@@ -34,5 +35,5 @@ view_by:
 
 config:
   colors:
-    "false": 4
-    "true": 1
+    "false": 2
+    "true": 3

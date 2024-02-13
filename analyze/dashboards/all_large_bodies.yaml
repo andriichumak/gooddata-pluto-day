@@ -8,8 +8,11 @@ type: dashboard
 
 title: The Sun, Planets, Dwarf Planets and Moons
 
+cross_filtering: false
+
 sections:
-  - widgets:
+  - description: Feel free to inspect the data yourself!
+    widgets:
       - visualization: all_large_bodies
         title: false
         columns: 12
@@ -22,9 +25,11 @@ filters:
     mode: hidden
   large_bodies_type_filter:
     type: attribute_filter
+    title: Object Type
     using: label/large_body_type
   planetary_system_filter:
     type: attribute_filter
+    title: Planetary System
     using: label/large_body_planetary_system
     state:
       include:
@@ -40,6 +45,7 @@ filters:
         - Sun
   large_body_filter:
     type: attribute_filter
+    title: Object Name
     using: label/large_body_name
     parents:
       - planetary_system_filter

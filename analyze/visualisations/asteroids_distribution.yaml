@@ -13,9 +13,10 @@ title: Distribution of asteroids
 query:
   fields:
     number_of_bodies:
-      title: Small Bodies Count
+      alias: Small Body Count
+      title: Count of Small Body
       aggregation: COUNT
-      using: label/small_body
+      using: attribute/small_body
     distance_spread:
       alias: Distance from the Sun, au
       using: label/small_body_distance_spread

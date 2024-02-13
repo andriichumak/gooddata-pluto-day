@@ -13,10 +13,13 @@ title: Distance from the Sun
 query:
   fields:
     semi_major_orbit:
-      title: Semi-Major Orbital Axis, au
+      alias: Semi-Major Orbital Axes, au
+      title: Sum of Large Body Semi-Major Orbit
       aggregation: SUM
       using: fact/large_body_semi_major_orbit
-    name: label/large_body_name
+    name:
+      alias: Object Name
+      using: label/large_body_name
 
   filter_by:
     - type: attribute_filter

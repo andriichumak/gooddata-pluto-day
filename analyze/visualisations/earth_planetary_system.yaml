@@ -13,7 +13,8 @@ title: Earth planetary system
 query:
   fields:
     mean_radius:
-      title: Mean Radius, km
+      alias: Mean Radius, km
+      title: Sum of Large Body Mean Radius
       aggregation: SUM
       using: fact/large_body_mean_radius
     name: label/large_body_name
@@ -36,6 +37,4 @@ view_by:
   - name
 
 config:
-  colors:
-    mean_radius: 2
   yaxis_name_visible: false

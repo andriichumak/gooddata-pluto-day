@@ -8,28 +8,27 @@
 id: top_100_neo_pha_objects
 type: scatter_chart
 
-title: Top 100 NEO PHA objects
+title: Top 100 largest PHA objects
 
 query:
   fields:
     distance:
-      title: Distance from the Sun, au
+      alias: Semi-Major Orbital Axes, au
+      title: Sum of Small Body Semi-Major Orbital
       aggregation: SUM
       using: fact/small_body_semi_major_orbit
     mean_radius:
-      title: Mean Radius, km
+      alias: Mean Radius, km
+      title: Sum of Small Body Mean Radius
       aggregation: SUM
       using: fact/small_body_mean_radius
-    name: label/small_body_name
+    name:
+      alias: Object Name
+      using: label/small_body_name
 
   filter_by:
     - type: attribute_filter
       using: label/small_body_pha
-      state:
-        exclude:
-          - "true"
-    - type: attribute_filter
-      using: label/small_body_neo
       state:
         include:
           - "true"

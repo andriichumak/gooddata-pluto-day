@@ -6,26 +6,27 @@
 id: small_bodies
 type: dashboard
 
-title: Small bodies
+title: The Solar System
 
 cross_filtering: false
 
 sections:
-  - widgets:
+  - description: Let's have a look at what else is lurking in the Solar System. There are lots of known of PHOs (Potentially Hazardous Asteroids) and NEOs (Near Earth Object), but if you compare the number to the total known object - it's not all that big.
+    widgets:
       - visualization: pha
         title: PHA (Potentially Hazardous Asteroids)
-        columns: 4
+        columns: 6
         rows: 22
       - visualization: neo
         title: NEO (Near Earth Objects)
-        columns: 4
+        columns: 6
         rows: 22
       - visualization: top_100_neo_pha_objects
-        title: Top 100 NEO PHA objects
-        description: Earth is 1AU from the Sun. It's natural that most hazardous objects have near-Earth orbits
-        columns: 4
+        title: Top 100 largest PHA objects
+        columns: 12
         rows: 22
-  - widgets:
+  - description: Most asteroids reside between 2.2 and 3.2 au - in the Main Asteroid Belt
+    widgets:
       - visualization: asteroids_distribution
         title: Distribution of asteroids
         columns: 12

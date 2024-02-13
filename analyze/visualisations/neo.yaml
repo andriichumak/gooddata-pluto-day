@@ -13,7 +13,8 @@ title: NEO (Near Earth Objects)
 query:
   fields:
     small_body_count:
-      title: Small Bodies Count
+      alias: Small Body Count
+      title: Count of Small Body
       aggregation: COUNT
       using: attribute/small_body
     neo: label/small_body_neo
@@ -27,5 +28,5 @@ view_by:
 
 config:
   colors:
-    "false": 4
-    "true": 1
+    "false": 2
+    "true": 3

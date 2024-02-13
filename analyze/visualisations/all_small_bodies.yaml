@@ -12,16 +12,22 @@ title: All Small Bodies
 
 query:
   fields:
-    name: label/small_body_name
-    type: label/small_body_type
+    name:
+      alias: Object Name
+      using: label/small_body_name
+    type:
+      alias: Object Type
+      using: label/small_body_type
     pha: label/small_body_pha
     neo: label/small_body_neo
     semi_major_orbit:
-      title: Semi-Major Orbit, au
+      alias: Semi-Major Orbital Axes, au
+      title: Sum of Small Body Semi-Major Orbital
       aggregation: SUM
       using: fact/small_body_semi_major_orbit
     mean_radius:
-      title: Mean Radius, km
+      alias: Mean Radius, km
+      title: Sum of Small Body Mean Radius
       aggregation: SUM
       using: fact/small_body_mean_radius
 

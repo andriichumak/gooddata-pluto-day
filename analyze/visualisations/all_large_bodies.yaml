@@ -12,31 +12,43 @@ title: All large bodies
 
 query:
   fields:
-    planetary_system: label/large_body_planetary_system
-    name: label/large_body_name
-    type: label/large_body_type
+    planetary_system:
+      alias: Planetary System
+      using: label/large_body_planetary_system
+    name:
+      alias: Object Name
+      using: label/large_body_name
+    type:
+      alias: Object Type
+      using: label/large_body_type
     mean_radius:
-      title: Mean Radius, km
+      alias: Mean Radius, km
+      title: Sum of Large Body Mean Radius
       aggregation: SUM
       using: fact/large_body_mean_radius
     major_orbit:
-      title: Semi-Major Orbit, au
+      alias: Semi-Major Orbital Axes, au
+      title: Sum of Large Body Semi-Major Orbit
       aggregation: SUM
       using: fact/large_body_semi_major_orbit
     mass:
-      title: Mass, kg
+      alias: Mass, kg
+      title: Sum of Large Body Mass
       aggregation: SUM
       using: fact/large_body_mass
     volume:
-      title: Volume, km^3
+      alias: Volume, km^3
+      title: Sum of Large Body Volume
       aggregation: SUM
       using: fact/large_body_volume
     density:
-      title: Density, g/cm^3
+      alias: Density, g/cm^3
+      title: Sum of Large Body Density
       aggregation: SUM
       using: fact/large_body_density
     free_fall:
-      title: Free Fall Acceleration
+      alias: Free Fall Acceleration, m/s^2
+      title: Sum of Large Body Free Fall Acceleration
       aggregation: SUM
       using: fact/large_body_free_fall
 
