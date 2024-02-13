@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bodies",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "englishName": {"type": "string"},
+    "gravity": {"type": "number"},
+    "density": {"type": "number"},
+    "meanRadius": {"type": "number"},
+    "avgTemp": {"type": "number"},
+    "bodyType": {"type": "string"},
+    "discoveryDate": {"type": "string"},
+    "discoveredBy": {"type": "string"},
+    "aroundPlanet_planet": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "semimajorAxis": {"type":  "number"},
+    "mass_massValue": {"type": "number"},
+    "mass_massExponent": {"type": "number"},
+    "vol_volValue": {"type": "number"},
+    "vol_volExponent": {"type": "number"}
+  },
+  "required": [
+    "id",
+    "englishName",
+    "bodyType"
+  ]
+}

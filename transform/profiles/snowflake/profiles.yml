@@ -1,0 +1,17 @@
+config:
+  send_anonymous_usage_stats: False
+  use_colors: True
+
+meltano:
+  target: "{{ env_var('MELTANO_ENVIRONMENT', 'dev') }}"  # The default profile name if no other profile is selected.
+  outputs:
+    dev:
+      type: snowflake
+      threads: 6
+      account: "{{ env_var('DBT_SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('DBT_SNOWFLAKE_USER') }}"
+      password: "{{ env_var('DBT_SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('DBT_SNOWFLAKE_ROLE') }}"
+      warehouse: "{{ env_var('DBT_SNOWFLAKE_WAREHOUSE') }}"
+      database: "{{ env_var('DBT_SNOWFLAKE_DATABASE') }}"
+      schema: "{{ env_var('DBT_SNOWFLAKE_SCHEMA') }}"

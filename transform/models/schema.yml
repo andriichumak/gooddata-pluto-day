@@ -1,0 +1,67 @@
+
+version: 2
+
+models:
+  - name: large_bodies
+    description: "Table with Star, Planets, Dwarf Planets and Moons"
+    columns:
+      - name: ID
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: TYPE
+        description: "The type of the body, i.e. Star, Planet or Dwarf Planet"
+        tests:
+          - not_null
+      - name: NAME
+        description: "Name of the body"
+        tests:
+          - not_null
+      - name: GRAVITY
+        description: "Gravity of the object, m*s^2"
+      - name: DENSITY
+        description: "Density of the object, g*cm^3"
+      - name: AVG_TEMP
+        description: "Average temperature"
+      - name: DISCOVERY_DATE
+        description: "The date it was discovered"
+      - name: DISCOVERED_BY
+        description: "Who discovered the body"
+      - name: MEAN_RADIUS
+        description: "An average radius of the body"
+      - name: SEMIMAJOR_ORBIT
+        description: "A semi-major axes of the orbit, in au"
+      - name: MASS
+        description: "Body weight, KT"
+      - name: VOLUME
+        description: "Body volume, km3"
+      - name: PLANETARY_SYSTEM
+        description: "Planet and all it's moons belong to the same system"
+
+  - name: small_bodies
+    description: "Table with asteroids and comets"
+    columns:
+      - name: ID
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: NAME
+        description: "Name of the body"
+        tests:
+          - not_null
+      - name: NEO
+        description: "Defines if it's a near-Earth object"
+      - name: PHA
+        description: "Defines if the object is potentially dangerous"
+      - name: G
+        description: "Free fall acceleration on the object surface"
+      - name: MEAN_RADIUS
+        description: "An average radius of the body, in km"
+      - name: SEMIMAJOR_ORBIT
+        description: "A semi-major axes of the orbit, in au"
+      - name: KIND
+        description: "Either an Asteroid or a Comet"
+      - name: DISTANCE_SPREAD
+        description: "Detect if the object belongs to an asteroid belt"
