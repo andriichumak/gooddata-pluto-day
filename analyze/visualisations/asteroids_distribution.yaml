@@ -15,14 +15,14 @@ query:
     number_of_bodies:
       title: Small Bodies Count
       aggregation: COUNT
-      using: attribute/small_body
+      using: label/small_body
     distance_spread:
       alias: Distance from the Sun, au
       using: label/small_body_distance_spread
 
   filter_by:
     - type: attribute_filter
-      using: label/large_body_type
+      using: label/small_body_type
       state:
         exclude:
           - Comet
