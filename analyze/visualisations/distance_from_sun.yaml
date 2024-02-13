@@ -1,0 +1,44 @@
+# A visualization is a visual representation of a user’s analytical view of the data.
+# You build visualizations from metrics, attributes, and optionally filters that are combined in a way to visualize a particular aspect of your data.
+# The visualizations are executed over and over as fresh data gets loaded.
+# Interpreting the content of a visualization is up to the user (the consumer of the visualization).
+# Read more about visualisations:
+# https://www.gooddata.com/developers/cloud-native/doc/cloud/create-visualizations/concepts/visualization/
+
+id: distance_from_sun
+type: scatter_chart
+
+title: Distance from the Sun
+
+query:
+  fields:
+    semi_major_orbit:
+      title: Semi-Major Orbital Axis, au
+      aggregation: SUM
+      using: fact/large_body_semi_major_orbit
+    name: label/large_body_name
+
+  filter_by:
+    - type: attribute_filter
+      using: label/large_body_name
+      state:
+        include:
+          - Mercury
+          - Venus
+          - Earth
+          - Mars
+          - Uranus
+          - Neptune
+          - Saturn
+          - Jupiter
+          - Pluto
+
+metrics:
+  - field: semi_major_orbit
+    format: "#,##0.00"
+
+view_by:
+  - name
+
+config:
+  yaxis_visible: false

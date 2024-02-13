@@ -1,0 +1,47 @@
+# A visualization is a visual representation of a user’s analytical view of the data.
+# You build visualizations from metrics, attributes, and optionally filters that are combined in a way to visualize a particular aspect of your data.
+# The visualizations are executed over and over as fresh data gets loaded.
+# Interpreting the content of a visualization is up to the user (the consumer of the visualization).
+# Read more about visualisations:
+# https://www.gooddata.com/developers/cloud-native/doc/cloud/create-visualizations/concepts/visualization/
+
+id: top_100_neo_pha_objects
+type: scatter_chart
+
+title: Top 100 NEO PHA objects
+
+query:
+  fields:
+    distance:
+      title: Distance from the Sun, au
+      aggregation: SUM
+      using: fact/small_body_semi_major_orbit
+    mean_radius:
+      title: Mean Radius, km
+      aggregation: SUM
+      using: fact/small_body_mean_radius
+    name: label/small_body_name
+
+  filter_by:
+    - type: attribute_filter
+      using: label/small_body_pha
+      state:
+        exclude:
+          - "true"
+    - type: attribute_filter
+      using: label/small_body_neo
+      state:
+        include:
+          - "true"
+    - type: ranking_filter
+      using: mean_radius
+      top: 100
+
+metrics:
+  - field: distance
+    format: "#,##0.00"
+  - field: mean_radius
+    format: "#,##0.00"
+
+view_by:
+  - name

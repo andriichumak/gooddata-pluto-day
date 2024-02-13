@@ -1,0 +1,111 @@
+# A dataset is a logical object that represents a set of related facts, attributes, and attribute labels.
+# Datasets are basic organization units of a logical data model.
+# Read more about Datasets:
+# https://www.gooddata.com/developers/cloud-native/doc/cloud/model-data/concepts/dataset/
+
+type: dataset
+id: large_bodies
+
+table_path: PLUTO/LARGE_BODIES
+
+title: Large Bodies
+description: The Sun, planets, dwarf planets and moons
+tags:
+  - Large Bodies
+
+primary_key: large_body
+
+fields:
+  large_body:
+    type: attribute
+    source_column: ID
+    data_type: STRING
+    title: Large Body
+    tags:
+      - Large Bodies
+    labels:
+      large_body_name:
+        source_column: NAME
+        data_type: STRING
+        title: Name
+        tags:
+          - Large Bodies
+        value_type: TEXT
+  large_body_discovered_by:
+    type: attribute
+    source_column: DISCOVERED_BY
+    data_type: STRING
+    title: Discovered By
+    tags:
+      - Large Bodies
+  large_body_type:
+    type: attribute
+    source_column: TYPE
+    data_type: STRING
+    title: Large Body Type
+    tags:
+      - Large Bodies
+  large_body_planetary_system:
+    type: attribute
+    source_column: PLANETARY_SYSTEM
+    data_type: STRING
+    title: Large Body Planetary System
+    tags:
+      - Large Bodies
+  large_body_avg_temp:
+    type: fact
+    source_column: AVG_TEMP
+    data_type: NUMERIC
+    title: Large Body Avg Temperature
+    tags:
+      - Large Bodies
+  large_body_density:
+    type: fact
+    source_column: DENSITY
+    data_type: NUMERIC
+    title: Large Body Density
+    description: Density
+    tags:
+      - Large Bodies
+  large_body_free_fall:
+    type: fact
+    source_column: GRAVITY
+    data_type: NUMERIC
+    title: Large Body Free Fall Acceleration
+    tags:
+      - Large Bodies
+  large_body_mean_radius:
+    type: fact
+    source_column: MEAN_RADIUS
+    data_type: NUMERIC
+    title: Large Body Mean Radius
+    tags:
+      - Large Bodies
+  large_body_mass:
+    type: fact
+    source_column: MASS
+    data_type: NUMERIC
+    title: Large Body Mass
+    tags:
+      - Large Bodies
+  large_body_semi_major_orbit:
+    type: fact
+    source_column: SEMIMAJOR_ORBIT
+    data_type: NUMERIC
+    title: Large Body Semi-Major Orbit
+    tags:
+      - Large Bodies
+  large_body_volume:
+    type: fact
+    source_column: VOLUME
+    data_type: NUMERIC
+    title: Large Body Volume
+    tags:
+      - Large Bodies
+
+references:
+  - dataset: discovery_date
+    sources:
+      - source_column: DISCOVERY_DATE
+        data_type: DATE
+        target: discovery_date

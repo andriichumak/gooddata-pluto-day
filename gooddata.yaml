@@ -1,0 +1,8 @@
+profiles:
+  dev:
+    host: https://ach.internal.cloud.gooddata.com/
+    token: $GOODDATA_API_TOKEN
+    workspace_id: pluto
+    data_source_id: c30c1937-13e1-4f2d-a62c-6f9b013fbfb1
+source_dir: analyze
+default_profile: dev

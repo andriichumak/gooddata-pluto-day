@@ -1,0 +1,31 @@
+# A dashboard is a collection of visualizations that are organized into sections.
+# Because they allow filtering and other adjustments, they function as a dynamic presentation layer for your data analytics.
+# Read more about dashboards:
+# https://www.gooddata.com/docs/cloud/create-dashboards/concepts/dashboard/
+
+id: all_small_bodies
+type: dashboard
+
+title: All small bodies
+
+sections:
+  - description: Showing only top 100 results
+    widgets:
+      - visualization: all_small_bodies
+        title: false
+        columns: 12
+        rows: 38
+
+filters:
+  common_day_filter:
+    type: date_filter
+    mode: hidden
+  type_filter:
+    type: attribute_filter
+    using: label/small_body_type
+  pha_filter:
+    type: attribute_filter
+    using: label/small_body_pha
+  neo_filter:
+    type: attribute_filter
+    using: label/small_body_neo

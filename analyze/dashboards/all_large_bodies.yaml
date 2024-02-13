@@ -1,0 +1,45 @@
+# A dashboard is a collection of visualizations that are organized into sections.
+# Because they allow filtering and other adjustments, they function as a dynamic presentation layer for your data analytics.
+# Read more about dashboards:
+# https://www.gooddata.com/docs/cloud/create-dashboards/concepts/dashboard/
+
+id: all_large_bodies
+type: dashboard
+
+title: The Sun, Planets, Dwarf Planets and Moons
+
+sections:
+  - widgets:
+      - visualization: all_large_bodies
+        title: false
+        columns: 12
+        rows: 40
+        date: discovery_date
+
+filters:
+  common_day:
+    type: date_filter
+    mode: hidden
+  large_bodies_type_filter:
+    type: attribute_filter
+    using: label/large_body_type
+  planetary_system_filter:
+    type: attribute_filter
+    using: label/large_body_planetary_system
+    state:
+      include:
+        - Earth
+        - Jupiter
+        - Mars
+        - Mercury
+        - Neptune
+        - Pluto
+        - Saturn
+        - Uranus
+        - Venus
+        - Sun
+  large_body_filter:
+    type: attribute_filter
+    using: label/large_body_name
+    parents:
+      - planetary_system_filter

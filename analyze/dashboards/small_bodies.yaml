@@ -1,0 +1,37 @@
+# A dashboard is a collection of visualizations that are organized into sections.
+# Because they allow filtering and other adjustments, they function as a dynamic presentation layer for your data analytics.
+# Read more about dashboards:
+# https://www.gooddata.com/docs/cloud/create-dashboards/concepts/dashboard/
+
+id: small_bodies
+type: dashboard
+
+title: Small bodies
+
+cross_filtering: false
+
+sections:
+  - widgets:
+      - visualization: pha
+        title: PHA (Potentially Hazardous Asteroids)
+        columns: 4
+        rows: 22
+      - visualization: neo
+        title: NEO (Near Earth Objects)
+        columns: 4
+        rows: 22
+      - visualization: top_100_neo_pha_objects
+        title: Top 100 NEO PHA objects
+        description: Earth is 1AU from the Sun. It's natural that most hazardous objects have near-Earth orbits
+        columns: 4
+        rows: 22
+  - widgets:
+      - visualization: asteroids_distribution
+        title: Distribution of asteroids
+        columns: 12
+        rows: 22
+
+filters:
+  common_day:
+    type: date_filter
+    mode: hidden

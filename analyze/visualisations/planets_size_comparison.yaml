@@ -1,0 +1,47 @@
+# A visualization is a visual representation of a user’s analytical view of the data.
+# You build visualizations from metrics, attributes, and optionally filters that are combined in a way to visualize a particular aspect of your data.
+# The visualizations are executed over and over as fresh data gets loaded.
+# Interpreting the content of a visualization is up to the user (the consumer of the visualization).
+# Read more about visualisations:
+# https://www.gooddata.com/developers/cloud-native/doc/cloud/create-visualizations/concepts/visualization/
+
+id: planets_size_comparison
+type: column_chart
+
+title: Planets (and Pluto) size comparison
+
+query:
+  fields:
+    mean_radius:
+      title: Mean Radius, km
+      aggregation: SUM
+      using: fact/large_body_mean_radius
+    name: label/large_body_name
+
+  filter_by:
+    - type: attribute_filter
+      using: label/large_body_name
+      state:
+        include:
+          - Mercury
+          - Earth
+          - Mars
+          - Venus
+          - Saturn
+          - Jupiter
+          - Uranus
+          - Neptune
+          - Pluto
+
+  sort_by:
+    - type: metric_sort
+      direction: DESC
+      metrics:
+        - mean_radius
+
+metrics:
+  - field: mean_radius
+    format: "#,##0.00"
+
+view_by:
+  - name

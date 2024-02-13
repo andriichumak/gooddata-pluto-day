@@ -1,0 +1,86 @@
+# A dataset is a logical object that represents a set of related facts, attributes, and attribute labels.
+# Datasets are basic organization units of a logical data model.
+# Read more about Datasets:
+# https://www.gooddata.com/developers/cloud-native/doc/cloud/model-data/concepts/dataset/
+
+type: dataset
+id: small_bodies
+
+table_path: PLUTO/SMALL_BODIES
+
+title: Small Bodies
+description: A table with small bodies of the Solar System
+tags:
+  - Small Bodies
+
+primary_key: small_body
+
+fields:
+  small_body:
+    type: attribute
+    source_column: ID
+    data_type: STRING
+    title: Small Body
+    tags:
+      - Small Bodies
+    labels:
+      small_body_name:
+        source_column: NAME
+        data_type: STRING
+        title: Name
+        tags:
+          - Small Bodies
+        value_type: TEXT
+  small_body_neo:
+    type: attribute
+    source_column: NEO
+    data_type: BOOLEAN
+    title: Near-Earth Object
+    description: Specifies if the body is near-Earth
+    tags:
+      - Small Bodies
+  small_body_pha:
+    type: attribute
+    source_column: PHA
+    data_type: BOOLEAN
+    title: Hazardous
+    description: Potentially Hazardous Asteroid
+    tags:
+      - Small Bodies
+  small_body_type:
+    type: attribute
+    source_column: TYPE
+    data_type: STRING
+    title: Small Body Type
+    description: Either an Asteroid or a Comet
+    tags:
+      - Small Bodies
+  small_body_distance_spread:
+    type: attribute
+    source_column: DISTANCE_SPREAD
+    data_type: STRING
+    title: Small Body Distance Spread
+    tags:
+      - Small Bodies
+  small_body_free_fall:
+    type: fact
+    source_column: G
+    data_type: NUMERIC
+    title: Small Body Free Fall Acceleration
+    tags:
+      - Small Bodies
+  small_body_mean_radius:
+    type: fact
+    source_column: MEAN_RADIUS
+    data_type: NUMERIC
+    title: Small Body Mean Radius
+    tags:
+      - Small Bodies
+  small_body_semi_major_orbit:
+    type: fact
+    source_column: SEMIMAJOR_ORBIT
+    data_type: NUMERIC
+    title: Small Body Semi-Major Orbital
+    description: SEMIMAJOR ORBIT
+    tags:
+      - Small Bodies

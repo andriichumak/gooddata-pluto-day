@@ -1,0 +1,85 @@
+# A visualization is a visual representation of a user’s analytical view of the data.
+# You build visualizations from metrics, attributes, and optionally filters that are combined in a way to visualize a particular aspect of your data.
+# The visualizations are executed over and over as fresh data gets loaded.
+# Interpreting the content of a visualization is up to the user (the consumer of the visualization).
+# Read more about visualisations:
+# https://www.gooddata.com/developers/cloud-native/doc/cloud/create-visualizations/concepts/visualization/
+
+id: all_large_bodies
+type: table
+
+title: All large bodies
+
+query:
+  fields:
+    planetary_system: label/large_body_planetary_system
+    name: label/large_body_name
+    type: label/large_body_type
+    mean_radius:
+      title: Mean Radius, km
+      aggregation: SUM
+      using: fact/large_body_mean_radius
+    major_orbit:
+      title: Semi-Major Orbit, au
+      aggregation: SUM
+      using: fact/large_body_semi_major_orbit
+    mass:
+      title: Mass, kg
+      aggregation: SUM
+      using: fact/large_body_mass
+    volume:
+      title: Volume, km^3
+      aggregation: SUM
+      using: fact/large_body_volume
+    density:
+      title: Density, g/cm^3
+      aggregation: SUM
+      using: fact/large_body_density
+    free_fall:
+      title: Free Fall Acceleration
+      aggregation: SUM
+      using: fact/large_body_free_fall
+
+  sort_by:
+    - type: attribute_sort
+      by: planetary_system
+      direction: ASC
+
+metrics:
+  - field: mean_radius
+    format: "#,##0.00"
+  - field: major_orbit
+    format: "#,##0.00"
+  - field: mass
+    format: |-
+      [>=1000000000000]#,,,,.0 T;
+      [>=1000000000]#,,,.0 B;
+      [>=1000000]#,,.0 M;
+      [>=1000]#,.0 K;
+      [>=0]#,##0;
+      [<=-1000000000000]-#,,,,.0 T;
+      [<=-1000000000]-#,,,.0 B;
+      [<=-1000000]-#,,.0 M;
+      [<=-1000]-#,.0 K;
+      [<0]-#,##0
+  - field: volume
+    format: |-
+      [>=1000000000000]#,,,,.0 T;
+      [>=1000000000]#,,,.0 B;
+      [>=1000000]#,,.0 M;
+      [>=1000]#,.0 K;
+      [>=0]#,##0;
+      [<=-1000000000000]-#,,,,.0 T;
+      [<=-1000000000]-#,,,.0 B;
+      [<=-1000000]-#,,.0 M;
+      [<=-1000]-#,.0 K;
+      [<0]-#,##0
+  - field: density
+    format: "#,##0.00"
+  - field: free_fall
+    format: "#,##0.00"
+
+view_by:
+  - planetary_system
+  - name
+  - type
