@@ -4,15 +4,36 @@ html, body {
     font: 400 100%/1.7 Helvetica,Arial,sans-serif;
 }
 
-header {
-    background-image: url(https://gooddata.com/img/pages/home/backgrounds/home-bg.svg);
+figure {
+    background-image: url(pluto_is_a_planet_cover.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-color: #210b45;
+    height: 50vw;
+    margin: 0;
+}
+
+header {
+    margin-bottom: 5em;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.6em;
+    font-weight: lighter;
+    margin: 1rem 0;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: lighter;
+    margin: 1rem 0;
 }
 
 footer {
-    background: #1c0d3f;
+    background: #210b45;
     color: #fff;
 }
 
@@ -39,6 +60,9 @@ section {
 }
 
 @media (min-width: 940px) {
+    figure {
+        height: 470px;
+    }
     section {
         width: 940px;
         margin: 0 auto;
