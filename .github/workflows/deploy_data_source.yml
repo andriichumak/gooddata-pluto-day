@@ -1,4 +1,4 @@
-name: Clear Database Cache
+name: Deploy Data Source
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 jobs:
-  clear_cahce:
+  deploy:
 
     runs-on: ubuntu-latest
 
@@ -33,6 +33,6 @@ jobs:
         echo "DBT_SNOWFLAKE_PASSWORD='${{ secrets.SNOWFLAKE_PWD }}'" >> .env
         echo "GOODDATA_API_TOKEN='${{ secrets.GD_DEV_TOKEN }}'" >> .env
         echo "GOODDATA_API_TOKEN_DEMO='${{ secrets.GD_DEMO_TOKEN }}'" >> .env
-    - name: Execute the DB cache clearing
+    - name: Execute the data source deployment
       run: |
-        python scripts/clear_cache.py --profile ${{ inputs.profile }}
+        python scripts/deploy.py --profile ${{ inputs.profile }}

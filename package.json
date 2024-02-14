@@ -1,0 +1,8 @@
+{
+  "name": "pluto-meltano",
+  "version": "1.0.0",
+  "description": "This is a demo dashboard created to showcase a complete data pipeline with GoodData for VS Code.",
+  "devDependencies": {
+    "@gooddata/code-cli": "^0.4.1"
+  }
+}

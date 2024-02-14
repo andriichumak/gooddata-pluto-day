@@ -1,6 +1,8 @@
 /venv
+/.venv
 /.meltano
 .env
 .DS_Store
 .idea
 *.log
+node_modules

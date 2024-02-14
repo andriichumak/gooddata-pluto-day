@@ -1,5 +1,5 @@
 meltano
 tap-rest-api-msdk
-dotenv
+python-dotenv
 attr
 gooddata_sdk

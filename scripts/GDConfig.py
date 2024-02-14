@@ -1,7 +1,7 @@
 import attr
 import yaml
 from pathlib import Path
-from dotenv import get_variables
+from dotenv import dotenv_values
 
 
 @attr.s(auto_attribs=True, kw_only=True, eq=False)
@@ -20,7 +20,7 @@ class GDConfig:
         with open(manifest_path) as f:
             config = yaml.safe_load(f.read())
 
-        secrets = get_variables(".env")
+        secrets = dotenv_values(".env")
 
         if not profile_name:
             profile_name = config["default_profile"] if config["default_profile"] else "dev"

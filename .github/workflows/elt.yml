@@ -1,18 +1,12 @@
-name: Clear Database Cache
+name: Run ELT
 
-on:
-  workflow_dispatch:
-   inputs:
-      environment:
-        description: 'Profile'
-        type: string
-        required: true
+on: workflow_dispatch
 
 permissions:
   contents: read
 
 jobs:
-  clear_cahce:
+  etl:
 
     runs-on: ubuntu-latest
 
@@ -33,6 +27,9 @@ jobs:
         echo "DBT_SNOWFLAKE_PASSWORD='${{ secrets.SNOWFLAKE_PWD }}'" >> .env
         echo "GOODDATA_API_TOKEN='${{ secrets.GD_DEV_TOKEN }}'" >> .env
         echo "GOODDATA_API_TOKEN_DEMO='${{ secrets.GD_DEMO_TOKEN }}'" >> .env
-    - name: Execute the DB cache clearing
-      run: |
-        python scripts/clear_cache.py --profile ${{ inputs.profile }}
+    - name: Prepare Meltano
+      run: meltano install
+    - name: Ingest data
+      run: meltano run tap-rest-api-msdk tap-sbdb target-snowflake
+    - name: Transform
+      run: meltano --environment dev run dbt-snowflake:run
