@@ -1,2 +1,5 @@
 meltano
 tap-rest-api-msdk
+dotenv
+attr
+gooddata_sdk
