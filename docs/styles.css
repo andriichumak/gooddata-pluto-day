@@ -4,6 +4,10 @@ html, body {
     font: 400 100%/1.7 Helvetica,Arial,sans-serif;
 }
 
+gd-dashboard {
+    overflow: hidden;
+}
+
 article {
     background: #fafafa;
 }
@@ -57,7 +61,7 @@ section {
 }
 
 .dashboards section {
-    box-shadow: grey 0 0 15px;
+    box-shadow: none;
     border-radius: 5px;
     min-height: 400px;
     margin-top: 2em;
@@ -71,5 +75,8 @@ section {
     section {
         width: 940px;
         margin: 0 auto;
+    }
+    .dashboards section {
+        box-shadow: grey 0 0 15px;
     }
 }
